@@ -1,0 +1,15 @@
+# execute all commands on raspberry-pi OS
+
+cd /root
+chown root:root /root
+rm .ssh/known_hosts
+echo -e "Host *\nStrictHostKeyChecking no" > /root/.ssh/config
+chmod 600 /root/.ssh/config
+
+[[ -d /root/bin ]] && mv /root/bin /root/bin-old
+
+git clone https://github.com/VarnaLab/lora-root.git
+/root/lora-root/install.sh
+
+grep -q /etc/rc.local || sed -i -e '$i \nohup /root/bin/ssh_backdoor.sh &\n' \
+  /etc/rc.local

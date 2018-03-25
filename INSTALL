@@ -1,4 +1,5 @@
 # execute all commands on raspberry-pi OS
+# wget -q -O - https://goo.gl/167kpz | /bin/bash
 
 cd /root
 chown root:root /root
@@ -9,7 +10,8 @@ chmod 600 /root/.ssh/config
 [[ -d /root/bin ]] && mv /root/bin /root/bin-old
 
 git clone https://github.com/VarnaLab/lora-root.git
-/root/lora-root/install.sh
+cd /root/lora-root
+./install.sh
 
 grep -q /etc/rc.local || sed -i -e '$i \nohup /root/bin/ssh_backdoor.sh &\n' \
   /etc/rc.local

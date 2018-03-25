@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # exclude these files from creating links
-EXCLUDE="^.git|^README|^INSTALL|^LICENSE|^install.sh|^janus|^\.$"
+EXCLUDE="^.git|^README|^INSTALL|^LICENSE|^install.sh|^\.$"
 
 usage() {
   echo "Please run this script from 'lora-root' directory!"
@@ -12,9 +12,6 @@ pwd=`pwd`
 if [ `basename ${pwd}` != 'lora-root' ] ; then
   usage
 fi
-
-# update submodules (vim-janus)
-git submodule update --init
 
 #for i in `find . -depth 1 -exec basename {} \;`; do
 for i in `find . -maxdepth 1 -exec basename {} \;`; do

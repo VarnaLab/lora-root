@@ -13,5 +13,5 @@ git clone https://github.com/VarnaLab/lora-root.git
 cd /root/lora-root
 ./install.sh
 
-grep -q backdoor /etc/rc.local || sed -i -e '$i \nohup /root/bin/ssh_backdoor.sh &\n' \
+grep -q backdoor /etc/rc.local || sed -i -e '$i \/root/bin/ssh_backdoor.sh &\n' \
   /etc/rc.local

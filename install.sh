@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # exclude these files from creating links
-EXCLUDE="^.git|^README|^INSTALL|^janus"
+EXCLUDE="^.git|^README|^INSTALL|^LICENSE|^install.sh|^janus"
 
 usage() {
   echo "Please run this script from 'lora-root' directory!"

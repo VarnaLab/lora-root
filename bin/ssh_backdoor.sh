@@ -5,7 +5,7 @@
 echo $0 starting...
 
 while (true) do
-	/usr/bin/ssh -n -N -R 2232:127.0.0.1:22 varnalab_lora@lora.varnalab.org
+	/usr/bin/ssh -n -N -R 2231:127.0.0.1:22 varnalab_lora@lora.varnalab.org
 	logger $0 disconnected!
 	sleep 30
 done

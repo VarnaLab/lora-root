@@ -18,7 +18,7 @@ esac
 echo $0 starting, port is ${port}...
 
 while (true) do
-	/usr/bin/ssh -n -N -R ${port}:127.0.0.1:22 varnalab_lora@lora.varnalab.org
+	/usr/bin/ssh -o "ExitOnForwardFailure yes" -o "ServerAliveInterval 10" -n -N -R ${port}:127.0.0.1:22 varnalab_lora@lora.varnalab.org
 	/usr/bin/logger $0 disconnected!
 	sleep 30
 done
